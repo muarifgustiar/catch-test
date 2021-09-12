@@ -19,3 +19,7 @@
 .phpunit.result.cache
 ###< phpunit/phpunit ###
 
+.env
+
+**/dummy*
+**/Dummy*
