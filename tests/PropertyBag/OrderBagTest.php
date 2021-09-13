@@ -2,6 +2,7 @@
 
 namespace App\Tests\PropertyBag;
 
+use App\PropertyBag\DiscountBag;
 use App\PropertyBag\OrderBag;
 use App\PropertyBag\OrderItemBag;
 use Carbon\Carbon;
@@ -61,5 +62,22 @@ class OrderBagTest extends TestCase
 
         $orderBag->setOrderItem($items);
         $orderBag->getOrderItems();
+    }
+    /**
+     * @test
+     */
+    public function order_will_throw_runtime_exception_when_value_is_not_array_of_discount_bag()
+    {
+        $this->expectException(RuntimeException::class);
+        $discount = [
+            new DiscountBag,
+            2,
+            'test'
+        ];
+
+        $orderBag = new OrderBag();
+
+        $orderBag->setDiscount($discount);
+        $orderBag->getDiscounts();
     }
 }

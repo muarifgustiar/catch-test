@@ -24,4 +24,16 @@ class DiscountBagTest extends TestCase
         $this->assertEquals($discounts->getType(), $type);
         $this->assertEquals($discounts->getPriority(), $priority);
     }
+    /**
+     * @test
+     */
+    public function successfully_get_data_without_setter()
+    {
+
+        $item = new DiscountBag();
+
+        $this->assertEquals($item->getValue(), 0);
+        $this->assertEquals($item->getType(), '');
+        $this->assertEquals($item->getPriority(), 0);
+    }
 }
